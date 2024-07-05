@@ -1,9 +1,16 @@
-import { Header } from './components/header';
+import { Header } from '../../components/header';
 
 export default function Section() {
+    const data = [
+        { href: "/#lokasi", name: "Lokasi" },
+        { href: "/#story", name: "Sejarah" },
+        { href: "/#most-populer", name: "Wisata" },
+        { href: "/pesan-tiket", name: "Tiket" }
+    ];
+
     return (
         <div className="bg-no-repeat bg-cover bg-fixed bg-[url('https://ik.imagekit.io/tvlk/blog/2022/01/Wisata-Air-Terjun-Lombok-Benang-Kelambu-Shutterstock.jpg?tr=dpr-2.5,h-480,q-40,w-1024')]">
-            <Header />
+            <Header data={data} />
             <div className="relative isolate px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
