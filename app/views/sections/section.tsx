@@ -1,4 +1,4 @@
-import Header from './components/header';
+import { Header } from './components/header';
 
 export default function Section() {
     return (
@@ -9,7 +9,7 @@ export default function Section() {
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                             Pengen Tau Lebih Detail.{' '}
-                            <a href="#" className="font-semibold text-indigo-100">
+                            <a href="#story" className="font-semibold text-indigo-100">
                                 <span className="absolute inset-0" aria-hidden="true" />
                                 Sejarah <span aria-hidden="true">&rarr;</span>
                             </a>
@@ -17,10 +17,10 @@ export default function Section() {
                     </div>
                     <div className="text-center">
                         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                            Air terjun Benang Kelambu
+                            Air Terjun Benang Kelambu
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-white font-semibold">
-                        Air Terjun Benang Kelambu di Pulau Lombok, Indonesia, terkenal dengan aliran air lembut melalui tanaman hijau tebal, menyerupai kelambu. Terletak di Taman Nasional Gunung Rinjani, air terjun ini menawarkan suasana tenang dan sejuk, cocok untuk yang mencari ketenangan dan keindahan alam.
+                            Air Terjun Benang Kelambu di Pulau Lombok, Indonesia, terkenal dengan aliran air lembut melalui tanaman hijau tebal, menyerupai kelambu. Terletak di Taman Nasional Gunung Rinjani, air terjun ini menawarkan suasana tenang dan sejuk, cocok untuk yang mencari ketenangan dan keindahan alam.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
@@ -29,7 +29,7 @@ export default function Section() {
                             >
                                 Dapatkan Tiket
                             </a>
-                            <a href="#" className="text-sm font-semibold leading-6 text-white">
+                            <a href="#lokasi" className="text-sm font-semibold leading-6 text-white">
                                 Lokasi <span aria-hidden="true">→</span>
                             </a>
                         </div>
