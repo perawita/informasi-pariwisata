@@ -1,28 +1,24 @@
-import Map from "./components/map";
+import MapComponent from './components/map';
 
 export default function Location() {
-    return (
+  const lat = -8.532817390802522; // Replace with your desired latitude
+  const lng = 116.34144707170883; // Replace with your desired longitude
 
-        <section id="lokasi" className="bg-white">
-            <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-                <div className="mx-auto max-w-3xl text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Trusted by eCommerce Businesses</h2>
+  return (
+    <section id="lokasi" className="bg-white">
+      <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Trusted by eCommerce Businesses</h2>
+          <p className="mt-4 text-gray-500 sm:text-xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores laborum labore
+            provident impedit esse recusandae facere libero harum sequi.
+          </p>
+        </div>
 
-                    <p className="mt-4 text-gray-500 sm:text-xl">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores laborum labore
-                        provident impedit esse recusandae facere libero harum sequi.
-                    </p>
-                </div>
-
-                <div className="mt-8 sm:mt-12">
-                    <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:divide-x sm:divide-gray-100">
-                        <div className="flex flex-col px-4 py-8 text-center">
-                            <Map />
-                        </div>
-
-                    </dl>
-                </div>
-            </div>
-        </section>
-    );
+        <div className="mt-8 sm:mt-12">
+            <MapComponent lat={lat} lng={lng} />
+        </div>
+      </div>
+    </section>
+  );
 }
