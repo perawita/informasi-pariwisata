@@ -25,14 +25,13 @@ export function Pesan() {
         };
     
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/request-token/`,
+            const response = await fetch(`/api/request-token/`,
             {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
                 body: JSON.stringify(parameter),
+                headers: {
+                  'content-type': 'application/json'
+                }
             });
 
             console.log(response);
