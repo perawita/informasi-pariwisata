@@ -1,5 +1,5 @@
 "use client";
-import axios from 'axios';
+
 import React, {useState} from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,7 @@ export function Pesan() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+    
         const parameter = {
             id_payment: invoice_id_generator(),
             amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
@@ -23,28 +23,35 @@ export function Pesan() {
             last_name: lastName,
             phone: phone
         };
-
-
+    
+        const authHeader = 'Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87';
+        const url = 'https://app.sandbox.midtrans.com/snap/v1/transactions';
+    
         try {
-            const authHeader = 'Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87';
-            const url = 'https://app.sandbox.midtrans.com/snap/v1/transactions';
-            
-            const response = await axios.post(url, parameter, {
+            const response = await fetch(url, {
+                method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': authHeader,
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify(parameter)
             });
-
-            console.log(response)
     
-            return response.data;
-            
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            const responseData = await response.json();
+            console.log(responseData);
+            return responseData;
+    
+        } catch (error: any) {
+            console.error('There was a problem with the fetch operation:', error.message);
+            // Handle the error as needed, such as showing a user-friendly message
         }
-    };
+    }; 
+    
 
     return (
         <section id="pesan">
