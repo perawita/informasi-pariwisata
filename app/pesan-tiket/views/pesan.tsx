@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
 import invoice_id_generator from '@/lib/invoice_id';
-import midtrans_service from '../services/midtrans/index';
 
 export function Pesan() {
 
@@ -16,17 +15,32 @@ export function Pesan() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const data = {
+            id_payment: invoice_id_generator(),
+            amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
+            first_name: firstName,
+            last_name: lastName,
+            phone: phone
+        };
+
+
         try {
-
-            const data = {
-                id_payment: invoice_id_generator(),
-                amount: parseInt(process.env.NEXT_PUBLIC_AMOUNT_PRICE ?? "0"),
-                first_name: firstName,
-                last_name: lastName,
-                phone: phone
-            };
-
-            const response = await midtrans_service(data);
+            const response = await fetch('/pesan-tiket/api/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+    
+            const result = await response.json();
+            console.log('Transaction Token:', result);
+            // Handle success or redirect to Midtrans payment page with the token
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }
@@ -55,12 +69,12 @@ export function Pesan() {
                             </LabelInputContainer>
                             <LabelInputContainer>
                                 <Label htmlFor="lastname">Last name</Label>
-                                <Input id="lastname" placeholder="Durden" type="text" onChange={(e) => setLastName(e.target.value)} required />
+                                <Input id="lastname" placeholder="Durden" type="text"  onChange={(e) => setLastName(e.target.value)} required />
                             </LabelInputContainer>
                         </div>
                         <LabelInputContainer className="mb-4">
                             <Label htmlFor="wa">Nomor Whatsapp</Label>
-                            <Input id="wa" placeholder="08983220" type="number" onChange={(e) => setPhone(e.target.value)} required />
+                            <Input id="wa" placeholder="08983220" type="number"  onChange={(e) => setPhone(e.target.value)} required />
                         </LabelInputContainer>
 
                         {/* <LabelInputContainer className="mb-4">
