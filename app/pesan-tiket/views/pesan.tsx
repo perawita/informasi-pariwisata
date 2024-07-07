@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
+import { useRouter } from 'next/navigation'
 
 import invoice_id_generator from "@/lib/invoice_id";
 import useSnaps from "../components/hooks/snap";
 
 export function Pesan() {
 
+    const router = useRouter()
     const { snapEmbed } = useSnaps();
 
     const [firstName, setFirstName] = useState('');
@@ -51,8 +53,8 @@ export function Pesan() {
     };
 
     
-    function handleSnapAction(){
-        
+    function handleSnapAction(response: any){
+        router.push(`/ticket/${response.transaction_id}/`,)
     }
 
     function handleCloseAction() {
