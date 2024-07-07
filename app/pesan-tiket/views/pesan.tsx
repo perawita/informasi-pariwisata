@@ -26,7 +26,7 @@ export function Pesan() {
 
 
         try {
-            const response = await fetch('/pesan-tiket/api/request-token/', {
+            const response = await fetch('/pesan-tiket/api/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export function Pesan() {
             }
     
             const result = await response.json();
-            console.log('Transaction Token:', result.transactionToken);
+            console.log('Transaction Token:', result);
             // Handle success or redirect to Midtrans payment page with the token
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
@@ -77,10 +77,10 @@ export function Pesan() {
                             <Input id="wa" placeholder="08983220" type="number"  onChange={(e) => setPhone(e.target.value)} required />
                         </LabelInputContainer>
 
-                        <LabelInputContainer className="mb-4">
+                        {/* <LabelInputContainer className="mb-4">
                             <Label htmlFor="date">Tanggal</Label>
                             <Input id="date" type="date"  onChange={(e) => setDate(e.target.value)} required />
-                        </LabelInputContainer>
+                        </LabelInputContainer> */}
 
                         <button
                             className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
