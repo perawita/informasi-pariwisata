@@ -19,7 +19,6 @@ export function Pesan() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         const parameter = {
             id_payment: invoice_id_generator(),
             amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
@@ -41,9 +40,6 @@ export function Pesan() {
             const data = await response.json();
             snapEmbed(data.token, {
                 onSuccess: handleSnapAction,
-                onPending: handleSnapAction,
-                onError: handleSnapAction,
-                onClose: handleCloseAction
             });
 
         } catch (error: any) {
@@ -51,12 +47,30 @@ export function Pesan() {
         }
     };
 
-    const handleSnapAction = () => {
-        alert('Succes')
-    }
+    async function handleSnapAction() {
+        const parameter = {
+            id_payment: invoice_id_generator(),
+            amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
+            first_name: firstName,
+            last_name: lastName,
+            phone: phone
+        };
 
-    const handleCloseAction = () => {
-        alert('error')
+        try {
+            const response = await fetch(`/api/send-notification/`,
+                {
+                    method: 'POST',
+                    body: JSON.stringify(parameter),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                });
+
+            const data = await response.json();
+
+        } catch (error: any) {
+            console.error('There was a problem with the fetch operation:', error.message);
+        }
     }
 
     return (
