@@ -25,7 +25,7 @@ export function Pesan() {
         };
     
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_API + '/request-token/',
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/request-token/`,
             {
                 method: 'POST',
                 headers: {
