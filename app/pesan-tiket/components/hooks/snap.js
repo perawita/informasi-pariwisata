@@ -24,17 +24,16 @@ const useSnaps = () => {
         if (snap) {
             snap.pay(snap_token, {
                 onSuccess: function (result) {
-                    alert("payment success!");
-                    console.log(result);
+                    alert("payment success!"); console.log(result);
                     action.onSuccess(result);
                 },
                 onPending: function (result) {
-                    alert("wating your payment!"); 
-                    console.log(result);
+                    alert("wating your payment!"); console.log(result);
+                    action.onPending(result);
                 },
                 onError: function (result) {
-                    alert("payment failed!"); 
-                    console.log(result);
+                    alert("payment failed!"); console.log(result);
+                    action.onError(result);
                 },
                 onClose: function () {
                     /* You may add your own implementation here */

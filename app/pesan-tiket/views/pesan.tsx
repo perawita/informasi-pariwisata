@@ -40,6 +40,8 @@ export function Pesan() {
             const data = await response.json();
             snapEmbed(data.token, {
                 onSuccess: handleSnapAction,
+                onPending: handleSnapAction,
+                onError: handleSnapAction,
             });
 
         } catch (error: any) {
@@ -48,6 +50,7 @@ export function Pesan() {
     };
 
     async function handleSnapAction() {
+        console.log('payyyy')
         const parameter = {
             id_payment: invoice_id_generator(),
             amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
