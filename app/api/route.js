@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import Midtrans, {get_token} from "@/lib/midtrans";
 
 export async function GET(){
     const data = {
@@ -10,8 +11,7 @@ export async function GET(){
 }
 
 export async function POST(req,res){
-  const data  =await req.json()
-  console.log(data)
-
-  return NextResponse.json(data)
+  const data  = await req.json()
+  const response = (await Midtrans()).get_token(data);
+  return NextResponse.json(response)
 }

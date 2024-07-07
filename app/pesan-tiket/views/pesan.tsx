@@ -1,12 +1,16 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
-import invoice_id_generator from '@/lib/invoice_id';
+
+import invoice_id_generator from "@/lib/invoice_id";
+import useSnaps from "../components/hooks/snap";
 
 export function Pesan() {
+
+    const { snapEmbed } = useSnaps();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -15,7 +19,7 @@ export function Pesan() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-    
+
         const parameter = {
             id_payment: invoice_id_generator(),
             amount: process.env.NEXT_PUBLIC_AMOUNT_PRICE,
@@ -23,23 +27,38 @@ export function Pesan() {
             last_name: lastName,
             phone: phone
         };
-    
+
         try {
             const response = await fetch(`/api/request-token/`,
-            {
-                method: 'POST',
-                body: JSON.stringify(parameter),
-                headers: {
-                  'content-type': 'application/json'
-                }
+                {
+                    method: 'POST',
+                    body: JSON.stringify(parameter),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                });
+
+            const data = await response.json();
+            snapEmbed(data.token, {
+                onSuccess: handleSnapAction,
+                onPending: handleSnapAction,
+                onError: handleSnapAction,
+                onClose: handleCloseAction
             });
 
-            console.log(response);
         } catch (error: any) {
             console.error('There was a problem with the fetch operation:', error.message);
         }
-    }; 
-    
+    };
+
+    const handleSnapAction = () => {
+        alert('Succes')
+    }
+
+    const handleCloseAction = () => {
+        alert('error')
+    }
+
 
     return (
         <section id="pesan">
@@ -64,12 +83,12 @@ export function Pesan() {
                             </LabelInputContainer>
                             <LabelInputContainer>
                                 <Label htmlFor="lastname">Last name</Label>
-                                <Input id="lastname" placeholder="Durden" type="text"  onChange={(e) => setLastName(e.target.value)} required />
+                                <Input id="lastname" placeholder="Durden" type="text" onChange={(e) => setLastName(e.target.value)} required />
                             </LabelInputContainer>
                         </div>
                         <LabelInputContainer className="mb-4">
                             <Label htmlFor="wa">Nomor Whatsapp</Label>
-                            <Input id="wa" placeholder="08983220" type="number"  onChange={(e) => setPhone(e.target.value)} required />
+                            <Input id="wa" placeholder="08983220" type="number" onChange={(e) => setPhone(e.target.value)} required />
                         </LabelInputContainer>
 
                         {/* <LabelInputContainer className="mb-4">
