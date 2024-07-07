@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pesan-tiket/api/route.js", "app/pesan-tiket/services/midtrans/index.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pesan-tiket/api/route.js", "app/pesan-tiket/services/midtrans/index.ts", "app/api/route.js"],
   "exclude": ["node_modules"]
 }
