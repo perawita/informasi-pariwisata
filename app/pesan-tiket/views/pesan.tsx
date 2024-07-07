@@ -52,7 +52,7 @@ export function Pesan() {
 
     
     function handleSnapAction(){
-
+        
     }
 
     function handleCloseAction() {
