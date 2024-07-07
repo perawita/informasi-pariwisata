@@ -30,6 +30,7 @@ export function Pesan() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify(parameter),
             });
