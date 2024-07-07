@@ -24,31 +24,19 @@ export function Pesan() {
             phone: phone
         };
     
-        const authHeader = 'Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87';
-        const url = 'https://app.sandbox.midtrans.com/snap/v1/transactions';
-    
         try {
-            const response = await fetch(url, {
+            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_API + '/request-token/',
+            {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json',
-                    'Authorization': authHeader,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(parameter)
+                body: JSON.stringify(parameter),
             });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-    
-            const responseData = await response.json();
-            console.log(responseData);
-            return responseData;
-    
+
+            console.log(response);
         } catch (error: any) {
             console.error('There was a problem with the fetch operation:', error.message);
-            // Handle the error as needed, such as showing a user-friendly message
         }
     }; 
     
