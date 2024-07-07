@@ -38,12 +38,26 @@ export function Pesan() {
                 });
 
             const data = await response.json();
-            snapEmbed(data.token);
+            snapEmbed(data.token, {
+                onSuccess: handleSnapAction,
+                onPending: handleSnapAction,
+                onError: handleSnapAction,
+                onClose: handleCloseAction
+            });
 
         } catch (error: any) {
             console.error('There was a problem with the fetch operation:', error.message);
         }
     };
+
+    
+    function handleSnapAction(){
+
+    }
+
+    function handleCloseAction() {
+    }
+
 
     return (
         <section id="pesan">
