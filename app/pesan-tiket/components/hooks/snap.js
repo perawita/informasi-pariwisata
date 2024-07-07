@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useSnaps = () => {
     const [snap, setSnap] = useState(null);
-    useEffect(() => {
-        
-        const scriptTag = document.createElement('script');
-        scriptTag.src = `${process.env.NEXT_PUBLIC_MIDTRANS_API}/snap/snap.js`;
-        scriptTag.setAttribute('data-client-key', process.env.MIDTRANS_CLIENT_KEY);
 
+    useEffect(() => {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = `${process.env.NEXT_PUBLIC_MIDTRANS_API}/snap.js`;
+        scriptTag.setAttribute('data-client-key', String(process.env.MIDTRANS_CLIENT_KEY));
+        scriptTag.async = true;
+    
         scriptTag.onload = () => {
             setSnap(window.snap);
         }
 
         document.body.appendChild(scriptTag);
-
+    
         return () => {
-            document.body.removeChild(scriptTag);
+          document.body.removeChild(scriptTag);
         }
-    }, []);
+      }, []);
 
     const snapEmbed = (snap_token, action) => {
         if (snap) {
