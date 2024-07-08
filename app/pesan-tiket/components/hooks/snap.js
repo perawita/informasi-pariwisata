@@ -26,8 +26,7 @@ const useSnaps = () => {
                 onSuccess: function (result) {
                     alert("payment success!");
                     console.log(result);
-                    action.onSuccess(
-                        router.push(`/ticket/${result.transaction_id}/`,));
+                    action.onSuccess(result);
                 },
                 onPending: function (result) {
                     alert("wating your payment!"); console.log(result);

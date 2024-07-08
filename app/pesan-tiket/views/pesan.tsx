@@ -54,7 +54,7 @@ export function Pesan() {
 
     
     function handleSnapAction(response: any){
-        router.push(`/ticket/${response.transaction_id}/`,)
+        router.push(`/pesan-tiket-finis/`,)
     }
 
     function handleCloseAction() {
