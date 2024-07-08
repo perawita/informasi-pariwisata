@@ -24,8 +24,10 @@ const useSnaps = () => {
         if (snap) {
             snap.pay(snap_token, {
                 onSuccess: function (result) {
-                    alert("payment success!"); console.log(result);
-                    action.onSuccess(result);
+                    alert("payment success!");
+                    console.log(result);
+                    action.onSuccess(
+                        router.push(`/ticket/${result.transaction_id}/`,));
                 },
                 onPending: function (result) {
                     alert("wating your payment!"); console.log(result);

@@ -58,6 +58,7 @@ export function Pesan() {
     }
 
     function handleCloseAction() {
+        router.push(`/pesan-ticket/`,)
     }
 
 
