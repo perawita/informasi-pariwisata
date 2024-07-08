@@ -54,12 +54,12 @@ export function Pesan() {
 
     
     function handleSnapAction(response: any){
-        router.push(`/pesan-tiket-finis/`,)
+        router.push(`/pesan-tiket-finis/${response.id_payment}`,)
     }
 
     
     function handleSnapActionError(response: any){
-        router.push(`/app/pesan-tiket-finis/`,)
+        router.push(`/app/pesan-tiket-error/`,)
     }
 
 
