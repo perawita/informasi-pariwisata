@@ -7,8 +7,6 @@ export function Card() {
 
   const [data, setData] = useState();
 
-  console.log(?result.status_message)
-
   // useEffect(() => {
   //     const data = async () =>{
   //       const response = await fetch('/api/request-ticket/', {
