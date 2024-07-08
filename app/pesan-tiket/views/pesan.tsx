@@ -54,7 +54,7 @@ export function Pesan() {
 
     
     function handleSnapAction(response: any){
-        router.push(`/pesan-tiket-finis/${response.id_payment}`,)
+        router.push(`/pesan-tiket-finis`,)
     }
 
     
@@ -95,7 +95,7 @@ export function Pesan() {
                             </LabelInputContainer>
                         </div>
                         <LabelInputContainer className="mb-4">
-                            <Label htmlFor="wa">Nomor Whatsapp</Label>
+                            <Label htmlFor="wa">Email</Label>
                             <Input id="wa" placeholder="example@gmail.com" type="email" onChange={(e) => setPhone(e.target.value)} required />
                         </LabelInputContainer>
 
