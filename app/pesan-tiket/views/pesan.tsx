@@ -42,8 +42,8 @@ export function Pesan() {
             const data = await response.json();
             snapEmbed(data.token, {
                 onSuccess: handleSnapAction,
-                onPending: handleSnapAction,
-                onError: handleSnapAction,
+                onPending: handleSnapActionError,
+                onError: handleSnapActionError,
                 onClose: handleCloseAction
             });
 
@@ -56,6 +56,12 @@ export function Pesan() {
     function handleSnapAction(response: any){
         router.push(`/pesan-tiket-finis/`,)
     }
+
+    
+    function handleSnapActionError(response: any){
+        router.push(`/app/pesan-tiket-finis/`,)
+    }
+
 
     function handleCloseAction() {
         router.push(`/pesan-ticket/`,)
