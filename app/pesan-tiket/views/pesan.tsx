@@ -96,7 +96,7 @@ export function Pesan() {
                         </div>
                         <LabelInputContainer className="mb-4">
                             <Label htmlFor="wa">Nomor Whatsapp</Label>
-                            <Input id="wa" placeholder="08983220" type="number" onChange={(e) => setPhone(e.target.value)} required />
+                            <Input id="wa" placeholder="example@gmail.com" type="email" onChange={(e) => setPhone(e.target.value)} required />
                         </LabelInputContainer>
 
                         {/* <LabelInputContainer className="mb-4">
