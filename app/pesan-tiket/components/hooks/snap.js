@@ -26,6 +26,7 @@ const useSnaps = () => {
                 onSuccess: function (result) {
                     alert("payment success!");
                     console.log(result);
+                    localStorage.setItem('transactionResponse', JSON.stringify(response));
                     action.onSuccess(result);
                 },
                 onPending: function (result) {

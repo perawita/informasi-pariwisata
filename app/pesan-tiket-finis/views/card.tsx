@@ -5,7 +5,9 @@ import { ImagesSlider } from "@/components/ui/images-slider";
 
 export function Card() {
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
+
+  console.log(?result.status_message)
 
   // useEffect(() => {
   //     const data = async () =>{
