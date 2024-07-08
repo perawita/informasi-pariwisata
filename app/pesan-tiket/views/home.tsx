@@ -24,7 +24,7 @@ export function Home() {
         <>
             <Header data={data} />
             <ImagesSlider className="h-[40rem]" images={images}>
-                <motion.div
+                <div
                     initial={{
                         opacity: 0,
                         y: -80,
@@ -45,7 +45,7 @@ export function Home() {
                         <span>Dapatkan tiket anda →</span>
                         <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
                     </a>
-                </motion.div>
+                </div>
             </ImagesSlider>
         </>
     );
