@@ -16,26 +16,27 @@ export default function Place() {
                     <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:divide-x sm:divide-gray-100">
                         <div className="flex flex-col px-4 py-8 text-center">
                             <Card
-                                Title="Judul Contoh"
-                                Description="Deskripsi contoh untuk kartu ini."
-                                Background="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/indizone/2022/12/08/XxsdrW0/4-mitos-air-terjun-benang-kelambu-konon-tempat-pemandian-ratu-penguasa-gunung-rinjani86.jpg"
+                                Title="Lebih dari 1 Air Terjun"
+                                Description=""
+                                Background="https://www.nativeindonesia.com/foto/2021/06/Spot-Untuk-Bermain-Air.jpg"
                             />
                         </div>
 
                         <div className="flex flex-col px-4 py-8 text-center">
                             <Card
-                                Title="Judul Contoh"
-                                Description="Deskripsi contoh untuk kartu ini."
+                                Title="Jalur Treking Air Terjun"
+                                Description=""
                                 Background="
-                                https://media-cdn.tripadvisor.com/media/photo-f/1a/74/c5/2f/photo4jpg.jpg"
+                                https://www.nativeindonesia.com/foto/2021/06/Trekking-Akhir-Menuju-Air-Terjun-Benang-Kelambu.jpg"
                             />
                         </div>
 
                         <div className="flex flex-col px-4 py-8 text-center">
                             <Card
-                                Title="Judul Contoh"
-                                Description="Deskripsi contoh untuk kartu ini."
-                                Background="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/indizone/2022/12/08/XxsdrW0/4-mitos-air-terjun-benang-kelambu-konon-tempat-pemandian-ratu-penguasa-gunung-rinjani86.jpg"
+                                Title="Kolam Pemandian dari Aliran Air Terjun"
+                                Description=""
+                                Background="
+                                https://www.nativeindonesia.com/foto/2021/06/Kolam-Yang-Indah.jpg"
                             />
                         </div>
                     </dl>
