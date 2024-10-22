@@ -2,29 +2,31 @@
 
 <h1>Air Tejun Benang Kelambu</h1>
 <p>
-Aplikasi sederhana berbasis web ini tujuan dibuatnya sebagai alat bantu untuk pihak adminitrasi sekolah untuk menangani pembayaran spp siswa sisiwi yang ada di sekolah tersebut.  
+  Aplikasi ini dibuat sebagai alat bantu para turis asing maupun turis dari dalam negeri sebagai alat bantu informasi tentang Air Terjun Benang Kelambu.
 </p>
 
 
 <h4>Teknologi</h4>
 <ul>
-  <li>php native</li>
-  <li>mysql</li>
-  <li>bootstrap 5</li>
+  <li>next js</li>
+  <li>type script</li>
+  <li>java script</li>
+  <li>tailwindui</li>
+  <li>midtrans payment</li>
 </ul>
 
 <h4>Fitur</h4>
 <ul>
-  <li>Dashboard</li>
-  <li>CRUD data siswa</li>
-  <li>CRUD data admin</li>
-  <li>Input Transaksi</li>
+  <li>Lokasi</li>
+  <li>Sejarah</li>
+  <li>Wisata</li>
+  <li>Pembelian Tiket</li>
 </ul>
 
 
-<h4>Roles</h4>
+<h4>Jenis Website</h4>
 <ul>
-  <li>Admin</li>
+  <li>Landing Page</li>
 </ul>
 
 
